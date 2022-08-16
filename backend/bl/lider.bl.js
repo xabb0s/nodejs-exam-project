@@ -4,9 +4,9 @@ const { response } = require("../utils/response.js")
 const liderService = new LiderService()
 
 class LiderBl {
-  async create(name, age) {
+  async create(name, age, job) {
     try {
-      const lider = await liderService.create(name, age)
+      const lider = await liderService.create(name, age, job)
 
       return response("ok", "Lider successfully created.", lider)
     } catch (err) {
@@ -24,9 +24,9 @@ class LiderBl {
     }
   }
 
-  async update(id, name, age) {
+  async update(id, name, age, job) {
     try {
-      const lider = await liderService.update(id, name, age)
+      const lider = await liderService.update(id, name, age, job)
 
       return response("ok", "Lider successfully updated.", lider)
     } catch (err) {

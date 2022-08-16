@@ -15,7 +15,7 @@ router.get("/lider", async (req, res) => {
 })
 
 router.post("/lider", async (req, res) => {
-  const { name, age } = req.body
+  const { name, age, job } = req.body
   
   if(!name) {
     res.json({
@@ -31,8 +31,15 @@ router.post("/lider", async (req, res) => {
     })
     return
   }
+  if(!job) {
+    res.json({
+      status: "bad",
+      msg: "Job not provided."
+    })
+    return
+  }
   
-  const result = await liderBl.create(name, age)
+  const result = await liderBl.create(name, +age, job)
 
   res.json({
     status: result.status,
@@ -42,7 +49,7 @@ router.post("/lider", async (req, res) => {
 })
 
 router.put("/lider/:id", async (req, res) => {
-  const { name, age } = req.body
+  const { name, age, job } = req.body
   const id = +req.params.id
   
   if(!name) {
@@ -66,8 +73,15 @@ router.put("/lider/:id", async (req, res) => {
     })
     return
   }
+  if(!job) {
+    res.json({
+      status: "bad",
+      msg: "Job not provided."
+    })
+    return
+  }
 
-  const result = await liderBl.update(id, name, age)
+  const result = await liderBl.update(id, name, age, job)
 
   res.json({
     status: result.status,

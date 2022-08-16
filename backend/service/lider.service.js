@@ -1,11 +1,12 @@
 const prisma = require("../config/database.js")
 
 class LiderService {
-  create(name, age) {
+  create(name, age, job) {
     return prisma.lider.create({
       data: {
-        name,
-        age
+        name: name,
+        age: age,
+        job: job
       }
     })
   }
@@ -14,14 +15,15 @@ class LiderService {
     return prisma.lider.findMany()
   }
 
-  update(id, name, age) {
+  update(id, name, age, job) {
     return prisma.lider.update({
       where: {
         id: id
       },
       data: {
         name: name,
-        age: age
+        age: age,
+        job: job
       }
     })
   }

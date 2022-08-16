@@ -24,7 +24,7 @@
           <th style="width: 100px;">Actions</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody id="lidersList">
         <tr>
           <td data-label="Name">James</td>
           <td data-label="Age">24</td>
@@ -45,14 +45,14 @@
             </div>
 
             <div class="ui input">
-              <input id="age" type="text" placeholder="Age">
+              <input id="age" type="number" placeholder="Age">
             </div>
 
             <div class="ui input">
               <input id="job" type="text" placeholder="Job">
             </div>
 
-            <div class="ui small primary labeled icon button">
+            <div id="addBtn" class="ui small primary labeled icon button">
               <i class="user icon"></i> Add User
             </div>
           </th>
@@ -60,6 +60,7 @@
       </tfoot>
     </table>
   </div>
-  <script src="./client.js"></script>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./client.js"></script>
 </html>
